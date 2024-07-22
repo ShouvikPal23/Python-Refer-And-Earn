@@ -1,0 +1,62 @@
+{
+  "name": "smm bot",
+  "description": "A Telegram daily  smm bot using python.",
+  "keywords": ["telegram", "adventure", "python", "pyrogram"],
+
+  "repository": "https://github.com/noob-mukesh/smm-Bot",
+  "stack": "heroku-22",
+  "addons": [
+    {
+      "options": {
+        "version": "12"
+      },
+      "plan": "heroku-postgresql"
+    }
+  ],
+  "env": {
+    "BOT_TOKEN": {
+      "description": "telegram bot token here",
+      "required": true
+    },
+    "STKR": {
+      "description": "Sticker for start ",
+      "required": false
+    },
+    "START_IMG": {
+      "description": "Start Image For Bot.",
+      "required": false
+    },
+    "API_ID": {
+      "description": "telegram api id here",
+      "required": true
+    },
+    "SMM_API_KEY": {
+      "description": "enter smm api key here",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "telegram api hash here",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": " fill your user id here OWNER ID",
+      "required": true
+    },
+    "OWNER_USERNAME": {
+      "description": " fill owner username here",
+      "required": true
+    },
+    "UPDATE_CHNL": {
+      "description": " fill owner UPDATE_CHNL username without @",
+      "required": true
+    },
+    "SUPPORT_GRP": {
+      "description": " fill SUPPORT_GRP  username here without @",
+      "required": true
+    },
+    "MONGO_DB_URI": {
+      "description": " fill your mongo db url here",
+      "required": true
+    }
+  }
+}

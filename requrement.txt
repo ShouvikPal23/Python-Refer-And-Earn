@@ -1,0 +1,9 @@
+aiofiles
+pyrogram
+requests
+dnspython
+tgcrypto
+asyncio
+pymongo
+currencyconverter
+pyrofork
