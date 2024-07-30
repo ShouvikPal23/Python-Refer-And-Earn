@@ -1,4 +1,4 @@
-from .. import Mukesh
+from .. import JN
 from pyrogram import Client, enums, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, KeyboardButton, ReplyKeyboardMarkup
 from ..database import collection
@@ -8,12 +8,12 @@ import asyncio
 def decrease_balance(user_id, amount):
     collection.update_one({'user_id': user_id}, {'$inc': {'balance': -amount}})
 
-@Mukesh.on_message((filters.regex("⚡️ ᴡɪᴛʜᴅʀᴀᴡᴀʟ ⚡️") | filters.command("withdrawal")) & filters.private)
+@JN.on_message((filters.regex("⚡️ ᴡɪᴛʜᴅʀᴀᴡᴀʟ ⚡️") | filters.command("withdrawal")) & filters.private)
 async def withdrawal(bot, message):
     document = collection.find_one({"user_id": message.from_user.id})
     balance = document.get("balance")
 
-    msg1 = await Mukesh.ask(message.from_user.id, "How much money do you want to withdraw?", reply_markup=main_button)
+    msg1 = await JN.ask(message.from_user.id, "How much money do you want to withdraw?", reply_markup=main_button)
     try:
         amount = float(msg1.text)
     except ValueError:
@@ -24,7 +24,7 @@ async def withdrawal(bot, message):
         await message.reply_text("Insufficient balance. Please enter a valid amount.", reply_markup=main_button)
         return
 
-    msg2 = await Mukesh.ask(message.from_user.id, "Please provide your UPI ID.", reply_markup=main_button)
+    msg2 = await JN.ask(message.from_user.id, "Please provide your UPI ID.", reply_markup=main_button)
     upi_id = msg2.text
 
     # Decrease the user's balance
