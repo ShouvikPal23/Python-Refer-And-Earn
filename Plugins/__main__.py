@@ -2,13 +2,13 @@ import asyncio
 import importlib
 from config import START_IMG,OWNER_ID
 from pyrogram import idle
-from Plugins import LOGGER, Mukesh
+from Plugins import LOGGER, JN
 from Plugins.modules import ALL_MODULES
 
 
 async def smm_start():
     try:
-        await Mukesh.start()
+        await JN.start()
     except Exception as ex:
         LOGGER.error(ex)
         quit(1)
@@ -16,8 +16,8 @@ async def smm_start():
     for all_module in ALL_MODULES:
         importlib.import_module("Plugins.modules." + all_module)
 
-    LOGGER.info(f"@{Mukesh.username} Started.")
-    # await Mukesh.send_photo(OWNER_ID,START_IMG,"I am Alive")
+    LOGGER.info(f"@{JN.username} Started.")
+    # await JN.send_photo(OWNER_ID,START_IMG,"I am Alive")
     await idle()
 
 
