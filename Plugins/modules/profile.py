@@ -20,8 +20,5 @@ async def Profile_msg(_, message):
 ɴᴀᴍᴇ : {message.from_user.mention}
 ʙᴀʟᴀɴᴄᴇ : {round(balance,2)} INR
 total refer : {document.get("total_refer")}
-total deposit : {document.get("total_deposits")}
-total orders : {document.get("total_orders")}
 ᴠᴇʀꜱɪᴏɴ 1.7"""
-        buttons2= InlineKeyboardMarkup([[InlineKeyboardButton("⌬ ᴀᴅᴅ ꜰᴜɴᴅ ⌬", callback_data='deposit')]])
-        await message.reply_photo(photo=photo,caption=user_info,reply_markup=buttons2)
+        await message.reply_photo(photo=photo,caption=user_info)
