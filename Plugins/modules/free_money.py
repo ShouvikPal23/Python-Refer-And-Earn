@@ -5,8 +5,6 @@ from pyrogram.enums import ParseMode
 from pyrogram.errors import UserNotParticipant, ChatWriteForbidden, ChatAdminRequired
 from config import UPDATE_CHNL, SUPPORT_GRP as Update2,START_IMG,all_platform
 
-#  force
-
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
