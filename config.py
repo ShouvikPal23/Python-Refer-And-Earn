@@ -39,7 +39,6 @@ deposit_IMG="https://graph.org/file/d46f6efe8fe5c991491ed.jpg"
 
                 
 
-]])
 
 main_button = ReplyKeyboardMarkup(
         [
