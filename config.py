@@ -38,28 +38,13 @@ deposit_IMG="https://graph.org/file/d46f6efe8fe5c991491ed.jpg"
 
 
                 
-desposit_text=f"""
 
-🖥 Dᴇᴘᴏsɪᴛ Pʟᴀɴs
-ᴏꜰꜰᴇʀ ᴠᴀʟɪᴅ ᴜᴘ ᴛᴏ 17/04/2024
-**🎉30% ʙᴏɴᴜꜱ +**
-⚡️ 𝟷 Rs: Nᴏ Vɪᴇᴡs Bᴏɴᴜs
-⚡️𝟷𝟶 Rs: 1k Vɪᴇᴡs Bᴏɴᴜs
-⚡️𝟹𝟶 Rs: 4k Vɪᴇᴡs Bᴏɴᴜs
-⚡️𝟻𝟶 Rs: 7k Vɪᴇᴡs Bᴏɴᴜs
-⚡️𝟷𝟶𝟶 Rs: 15k Vɪᴇᴡs Bᴏɴᴜs 
-⚡️ 200 Rs: 35K Vɪᴇᴡs Bᴏɴᴜs
-⚡️ 500 Rs: 80ᴋ Vɪᴇᴡs Bᴏɴᴜs
-⚡️ 1000: Rs 200ᴋ Vɪᴇᴡs Bᴏɴᴜs
-
-💙"""
-buttons = InlineKeyboardMarkup([[InlineKeyboardButton("• ᴘᴀʏ ᴡɪᴛʜ ᴜᴘɪ •", callback_data='INR')
 ]])
 
 main_button = ReplyKeyboardMarkup(
         [
             [KeyboardButton("🪪 ᴍʏ ᴘʀᴏꜰɪʟᴇ"), KeyboardButton("🤑 ꜰʀᴇᴇ ᴍᴏɴᴇʏ 🤑")],
-            [KeyboardButton("⚡️ ᴡɪᴛʜᴅʀᴀᴡᴀʟ ⚡️"), KeyboardButton("💸 ᴀᴅᴅ ꜰᴜɴᴅ")], 
+            [KeyboardButton("⚡️ ᴡɪᴛʜᴅʀᴀᴡᴀʟ ⚡️")], 
             [KeyboardButton("ᴄʀᴇᴀᴛᴏʀ 😉", web_app=WebAppInfo(url="https://jnbots.netlify.app"))]
         ],
         resize_keyboard=True
