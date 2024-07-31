@@ -1,4 +1,4 @@
-from .. import Mukesh
+from .. import JN
 from pyrogram import Client, enums, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, KeyboardButton, ReplyKeyboardMarkup
 from ..database import update_balance, collection
@@ -11,7 +11,7 @@ def increase_balance(user_id, amount):
 def decrease_balance(user_id, amount):
     collection.update_one({'user_id': user_id}, {'$inc': {'balance': -amount}})
 
-@Mukesh.on_message((filters.regex("ᴅɪᴄᴇ ɢᴀᴍᴇ 🥳") | filters.command("dice")) & filters.private)
+@JN.on_message((filters.regex("ᴅɪᴄᴇ ɢᴀᴍᴇ 🥳") | filters.command("dice")) & filters.private)
 async def dice(bot, message):
     document = collection.find_one({"user_id": message.from_user.id})
     balance = document.get("balance")
@@ -28,7 +28,7 @@ async def dice(bot, message):
         [KeyboardButton("📍ᴄᴀɴᴄᴇʟ ʙᴇᴛ📍")]
     ], resize_keyboard=True)
 
-    msg1 = await Mukesh.ask(message.from_user.id, "How much money you want to bet in INR format.", reply_markup=keyboard)
+    msg1 = await JN.ask(message.from_user.id, "How much money you want to bet in INR format.", reply_markup=keyboard)
     if msg1.text == "📍ᴄᴀɴᴄᴇʟ ʙᴇᴛ📍":
         await message.reply_text("Bet canceled.", reply_markup=all_platform)
         return
@@ -43,7 +43,7 @@ async def dice(bot, message):
         await message.reply_text("Insufficient balance. Please enter a valid amount.", reply_markup=all_platform)
         return
 
-    msg2 = await Mukesh.ask(message.from_user.id, "Choose number to bet", reply_markup=keyboard2)
+    msg2 = await JN.ask(message.from_user.id, "Choose number to bet", reply_markup=keyboard2)
     if msg2.text == "📍ᴄᴀɴᴄᴇʟ ʙᴇᴛ📍":
         await message.reply_text("Bet canceled.", reply_markup=all_platform)
         return
@@ -65,7 +65,7 @@ async def dice(bot, message):
         decrease_balance(user_id, amount)
         await message.reply_text(f"Hey {message.from_user.mention} you lost the bet and lost: {amount}", reply_markup=all_platform, quote=True)
 
-@Mukesh.on_message((filters.regex("⚽️ ꜰᴏᴏᴛʙᴀʟʟ") | filters.command("football")) & filters.private)
+@JN.on_message((filters.regex("⚽️ ꜰᴏᴏᴛʙᴀʟʟ") | filters.command("football")) & filters.private)
 async def football(bot, message):
     document = collection.find_one({"user_id": message.from_user.id})
     balance = document.get("balance")
@@ -77,7 +77,7 @@ async def football(bot, message):
         [KeyboardButton("📍ᴄᴀɴᴄᴇʟ ʙᴇᴛ📍")]
     ], resize_keyboard=True)
 
-    msg1 = await Mukesh.ask(message.from_user.id, "How much money you want to bet in INR format.", reply_markup=keyboard)
+    msg1 = await JN.ask(message.from_user.id, "How much money you want to bet in INR format.", reply_markup=keyboard)
     if msg1.text == "📍ᴄᴀɴᴄᴇʟ ʙᴇᴛ📍":
         await message.reply_text("Bet canceled.", reply_markup=all_platform)
         return
