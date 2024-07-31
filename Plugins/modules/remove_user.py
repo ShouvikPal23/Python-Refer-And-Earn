@@ -1,9 +1,9 @@
-from .. import Mukesh
+from .. import JN
 from pyrogram import filters
 from ..database import collection
 from config import OWNER_ID
 # Define a function to handle the /delete command
-@Mukesh.on_message(filters.command("delete") & filters.private)
+@JN.on_message(filters.command("delete") & filters.private)
 async def delete_command_handler(bot, message):   
     if message.from_user.id == OWNER_ID:
         if len(message.command) == 2:
