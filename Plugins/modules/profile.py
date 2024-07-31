@@ -1,4 +1,5 @@
 # github - JNBOTS
+#telegram @JN_BOTS
 
 from .. import JN
 from ..database import update_balance,deposits,collection
