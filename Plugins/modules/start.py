@@ -18,7 +18,7 @@ async def must_join_channel(bot: Client, msg):
             await bot.get_chat_member(UPDATE_CHNL, msg.from_user.id)
             await bot.get_chat_member(SUPPORT_GRP, msg.from_user.id)
             
-            caption = f"Hello {msg.from_user.first_name}, \nI'm {Client.mention}\n\n"\
+            caption = f"Hello {msg.from_user.first_name}, \nI'm {JN.mention}\n\n"\
                   "I'm a powerful SMM bot. You can buy any type of SMM service here.\n\n"\
                   "Maintained by: <a href='https://t.me/JN_dev/'>JN Dev</a>"
             caption2 = f"Hello {msg.from_user.first_name},\n\n ʜᴇʏ ʟᴏᴏᴋ ʟɪᴋᴇ ʏᴏᴜ ᴀʀᴇ ɴᴇᴡ ʜᴇʀᴇ ᴏɴᴇ ʟɪᴛᴛʟᴇ ɢɪꜰᴛ ꜰʀᴏᴍ ᴍᴇ ʏᴏᴜ ᴊᴜꜱᴛ ɢᴏᴛ +1 ₹ ᴀꜱ ʙᴏɴᴜꜱ.\n\nʀᴜɴ ᴛʜᴇ /start ᴄᴏᴍᴍᴀɴᴅ ᴀɢᴀɪɴ ᴛᴏ ꜱᴛᴀʀᴛ ᴜꜱɪɴɢ ᴛʜɪꜱ ʙᴏᴛ."
