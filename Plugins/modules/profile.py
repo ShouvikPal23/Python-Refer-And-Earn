@@ -1,6 +1,6 @@
-# github - noob-mukesh
+# github - JNBOTS
 
-from .. import Mukesh
+from .. import JN
 from ..database import update_balance,deposits,collection
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton
@@ -9,7 +9,7 @@ from config import *
 
 
      # profile 
-@Mukesh.on_message((filters.regex("🪪 ᴍʏ ᴘʀᴏꜰɪʟᴇ") | filters.command("Profile") )& filters.private)
+@JN.on_message((filters.regex("🪪 ᴍʏ ᴘʀᴏꜰɪʟᴇ") | filters.command("Profile") )& filters.private)
 async def Profile_msg(_, message):
     # print(message)
     await message.delete()
