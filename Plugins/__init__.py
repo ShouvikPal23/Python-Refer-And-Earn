@@ -14,7 +14,7 @@ logging.getLogger("pyrogram").setLevel(logging.ERROR)
 LOGGER = logging.getLogger(__name__)
 
 
-class Mukesh(Client):
+class JN(Client):
     def __init__(self):
         super().__init__(
             name="smm",
@@ -36,4 +36,4 @@ class Mukesh(Client):
         await super().stop()
 
 
-Mukesh = Mukesh()
+JN = JN()
