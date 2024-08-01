@@ -53,8 +53,6 @@ async def must_join_channel(bot: Client, msg):
                 user_id={msg.from_user.id}
 
             try:
-                await asyncio.sleep(1)
-                await msg.delete()
                 x = await msg.reply_photo(
                 photo=START_IMG,
                 caption='»<b>ᴅᴜᴇ ᴛᴏ ʜɪɢʜ ꜱᴇʀᴠᴇʀ ʟᴏᴀᴅ ᴏɴʟʏ ᴍʏ ᴄʜᴀɴɴᴇʟ ᴍᴇᴍʙᴇʀ ᴄᴀɴ ᴜꜱᴇ ᴍᴇ☺️!</b>',
