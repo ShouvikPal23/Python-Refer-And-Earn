@@ -10,6 +10,7 @@ from pyrogram.enums import ChatMemberStatus
 @Client.on_callback_query()
 async def callback_all(client, query: CallbackQuery):
     if query.data.startswith("approve"):
+        print("hii")
         datas = query.data.split("_")
         user_id = int(datas[1])
         amount = float(datas[2])
