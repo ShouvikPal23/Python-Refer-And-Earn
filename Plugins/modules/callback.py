@@ -9,37 +9,30 @@ from pyrogram.enums import ChatMemberStatus
 # Callback handler
 @Client.on_callback_query()
 async def callback_all(client, query: CallbackQuery):
+    if query.data.startswith("approve"):
+        datas = query.data.split("_")
+        user_id = int(datas[1])
+        amount = float(datas[2])
+        upi_id = datas[4]
     
-    import re
-
-if query.data.startswith("approve"):
-    datas = query.data.split("_")
-    user_id = int(datas[1])
-    amount = float(datas[2])
-    upi_id = datas[4]
+        print("Approve action", user_id, amount, upi_id)
     
-    print("Approve action", user_id, amount, upi_id)
-    
-    await JN.send_message(
-        user_id,
+        await JN.send_message(user_id,
         f"Your withdrawal request for INR {amount} has been approved."
     )
-    await query.answer("Withdrawal approved.")
+        await query.answer("Withdrawal approved.")
 
-elif query.data.startswith("reject"):
-    datas = query.data.split("_")
-    user_id = int(datas[1])
-    amount = float(datas[2])
-    upi_id = datas[4]
+    if query.data.startswith("reject"):
+        datas = query.data.split("_")
+        user_id = int(datas[1])
+        amount = float(datas[2])
+        upi_id = datas[4]
     
-    print("Reject action", user_id, amount, upi_id)
-    
-    collection.update_one({'user_id': user_id}, {'$inc': {'balance': amount}})
-    await JN.send_message(
-        user_id,
-        f"Your withdrawal request for INR {amount} has been rejected. The amount has been refunded to your balance."
+        print("Reject action", user_id, amount, upi_id)
+        collection.update_one({'user_id': user_id}, {'$inc': {'balance': amount}})
+        await JN.send_message(user_id,f"Your withdrawal request for INR {amount} has been rejected. The amount has been refunded to your balance."
     )
-    await query.answer("Withdrawal rejected.")
+        await query.answer("Withdrawal rejected.")
 
     
     
