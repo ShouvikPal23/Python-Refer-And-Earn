@@ -33,29 +33,8 @@ async def callback_all(client, query: CallbackQuery):
         await JN.send_message(user_id,f"Your withdrawal request for INR {amount} has been rejected. The amount has been refunded to your balance."
     )
         await query.answer("Withdrawal rejected.")
-
     
     
-    match = re.match(r"^(approve|reject)_(\d+)_(\d+(\.\d+)?)_(.+)$", query.data)
-    # print("33",match)
-    if match:
-        action, user_id, amount, _, upi_id = match.groups()
-        print(user_id,action,amount,_,upi_id)
-        user_id = int(user_id)
-        amount = float(amount)
-        if action == "approve":
-            await JN.send_message(
-                user_id,
-                f"Your withdrawal request for INR {amount} has been approved."
-            )
-            await query.answer("Withdrawal approved.")
-        else:
-            collection.update_one({'user_id': user_id}, {'$inc': {'balance': amount}})
-            await JN.send_message(
-                user_id,
-                f"Your withdrawal request for INR {amount} has been rejected. The amount has been refunded to your balance."
-            )
-            await query.answer("Withdrawal rejected.")
     if query.data.startswith("joined"):
         datas=query.data.split("_")
         user_id=int(datas[1].replace("{","").replace("}", ""))
