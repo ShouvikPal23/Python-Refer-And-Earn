@@ -6,9 +6,11 @@ import re
 from pyrogram.errors import UserNotParticipant
 from ..database import collection, add_refer_balance, add_default_balance
 from pyrogram.enums import ChatMemberStatus
+from Plugins.modules.withdraw import decrease_balance
 # Callback handler
-@Client.on_callback_query()
+@JN.on_callback_query()
 async def callback_all(client, query: CallbackQuery):
+    # print(query.data)
     if query.data.startswith("approve"):
         print("hii")
         datas = query.data.split("_")
@@ -21,6 +23,7 @@ async def callback_all(client, query: CallbackQuery):
         await JN.send_message(user_id,
         f"Your withdrawal request for INR {amount} has been approved."
     )
+        decrease_balance(user_id, amount)
         await query.answer("Withdrawal approved.")
 
     if query.data.startswith("reject"):
