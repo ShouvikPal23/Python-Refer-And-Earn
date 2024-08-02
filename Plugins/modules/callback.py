@@ -14,7 +14,7 @@ async def callback_all(client, query: CallbackQuery):
         datas = query.data.split("_")
         user_id = int(datas[1])
         amount = float(datas[2])
-        upi_id = datas[4]
+        upi_id = datas[-1]
     
         print("Approve action", user_id, amount, upi_id)
     
@@ -27,7 +27,7 @@ async def callback_all(client, query: CallbackQuery):
         datas = query.data.split("_")
         user_id = int(datas[1])
         amount = float(datas[2])
-        upi_id = datas[4]
+        upi_id = datas[-1]
     
         print("Reject action", user_id, amount, upi_id)
         collection.update_one({'user_id': user_id}, {'$inc': {'balance': amount}})
