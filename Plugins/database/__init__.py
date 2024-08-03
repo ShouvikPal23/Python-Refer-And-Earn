@@ -1,4 +1,4 @@
-from config import MONGO_DB_URI
+from config import MONGO_DB_URI,NEW_USER_BONUS
 
 from pymongo import MongoClient
 client = MongoClient(MONGO_DB_URI)
@@ -22,13 +22,16 @@ async def update_balance(user_id, amount):
             'total_deposits': 0,"total_orders":0}
         collection.insert_one(balance_doc)
 #add refer
+
+
+
 async def add_refer_balance(user_id, refer_in):
     query = {'user_id': user_id}
     existing_user = collection.find_one(query)
 
     if existing_user:
         new_balance = existing_user.get('balance', 0) + 1
-        refer_increase=existing_user.get('total_refer', 0) + refer_in
+        refer_increase=existing_user.get('total_refer', 0) + 4
         collection.update_one(query, {'$set': {'balance': new_balance}})
         collection.update_one(query,{"$set": {"total_refer": refer_increase}})
     else:
@@ -41,11 +44,12 @@ async def add_refer_balance(user_id, refer_in):
 def add_default_balance(user_id):
     query = {'user_id': user_id}
     existing_balance = collection.find_one(query)
+    
 
     if not existing_balance:
         balance_doc = {
             'user_id': user_id,
-            'balance': 1,
+            'balance': NEW_USER_BONUS,
             'total_refer': 0,
             'total_deposits': 0,
             'total_orders': 0,

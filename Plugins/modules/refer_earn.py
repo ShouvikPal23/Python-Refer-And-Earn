@@ -26,6 +26,7 @@ async def must_join_channel(bot: Client, msg):
         return
     referred_by = int(msg.text.split()[1])
     user_id = msg.from_user.id
+    print(referred_by)
     try:
         try:
             await bot.get_chat_member(UPDATE_CHNL, msg.from_user.id)
@@ -43,7 +44,8 @@ async def must_join_channel(bot: Client, msg):
                 await JN.send_photo(msg.chat.id, photo=START_IMG, caption=caption2, reply_markup=main_button)
 
                 await JN.send_message(msg.chat.id, text=f"Hey you just got {NEW_USER_BONUS}₹ in your account as new user bonus")
-                add_refer_balance(user_id=referred_by, refer_in=REFER_BONUS)
+                print(referred_by+1)
+                await add_refer_balance(user_id=referred_by, refer_in=REFER_BONUS)
                 add_default_balance(user_id=user_id)
                 await bot.send_message(referred_by, f"ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ 🎉!, ʏᴏᴜ ɢᴏᴛ {REFER_BONUS}₹ ɴᴇᴡ ʀᴇꜰᴇʀ")
                 await JN.send_message(log_channel, text=f"🦋 #newuser 🦋,\n\n**ID** : `{msg.from_user.id}`\n**Name**: {msg.from_user.first_name}\n **refer by:**{referred_by}")
