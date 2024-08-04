@@ -17,9 +17,10 @@ async def callback_all(client, query: CallbackQuery):
         user_id = int(datas[1])
         amount = float(datas[2])
         upi_id = datas[-1]
+        await query.message.delete()
     
         print("Approve action", user_id, amount, upi_id)
-        await query.message.delete()
+        
         await JN.send_message(user_id,
         f"Your withdrawal request for INR {amount} has been approved."
     )
