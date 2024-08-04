@@ -18,7 +18,7 @@ BOT_USERNAME:str = os.environ.get("BOT_USERNAME", "JN_SMM_BOT")
 #get it from @username_to_id_bot this bot 
 
 log_channel = int(os.environ.get("LOG_CHANNEL", "-1001918482012"))
-OWNER_ID=int(os.environ.get("OWNER_ID",6728038801))
+OWNER_ID=int(os.environ.get("OWNER_ID",None))
 
 
 # search on youtube "how to create mongodburl""
