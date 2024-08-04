@@ -22,8 +22,8 @@ async def get_referral_link(client, message):
 # Force join handler
 @JN.on_message(filters.regex(r"/start \d+"))
 async def must_join_channel(bot: Client, msg):
-    if not UPDATE_CHNL and not Update2:
-        return
+    # if not UPDATE_CHNL and not Update2:
+    #     return
     referred_by = int(msg.text.split()[1])
     user_id = msg.from_user.id
     print(referred_by)
@@ -52,6 +52,8 @@ async def must_join_channel(bot: Client, msg):
             else:
                 await msg.reply(f"Hey {msg.from_user.first_name}, are you trying to cheat on me? 😏")
                 await bot.send_message(referred_by, "ʏᴏᴜʀ ꜰʀɪᴇɴᴅ ɪꜱ ᴀʟʀᴇᴀᴅʏ ᴀ ᴜꜱᴇʀ ᴏꜰ ᴛʜᴇ ʙᴏᴛ.")
+        except Exception as e:
+            print(e)
                 
         except UserNotParticipant:
             if UPDATE_CHNL.isalpha() and Update2.isalpha():
@@ -88,6 +90,8 @@ async def must_join_channel(bot: Client, msg):
                     await bot.send_message(referred_by, "ʏᴏᴜʀ ꜰʀɪᴇɴᴅ ɪꜱ ᴀʟʀᴇᴀᴅʏ ᴀ ᴜꜱᴇʀ ᴏꜰ ᴛʜᴇ ʙᴏᴛ.")
             except ChatWriteForbidden:
                 pass
-    except ChatAdminRequired:
+    except ChatWriteForbidden:
+        # print(e)
         print(f"Promote me as an admin in the UPDATE CHANNEL: {UPDATE_CHNL}!")
         print(f"Promote me as an admin in the Update2: {Update2}!")
+        pass

@@ -72,5 +72,6 @@ async def must_join_channel(bot: Client, msg):
             except ChatWriteForbidden:
                 pass
     except ChatAdminRequired:
+        pass
         print(f"Promote me as an admin in the UPDATE CHANNEL: {UPDATE_CHNL}!")
         print(f"Promote me as an admin in the SUPPORT_GRP: {SUPPORT_GRP}!")
