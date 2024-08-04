@@ -19,7 +19,7 @@ async def callback_all(client, query: CallbackQuery):
         upi_id = datas[-1]
     
         print("Approve action", user_id, amount, upi_id)
-    
+        await query.message.delete()
         await JN.send_message(user_id,
         f"Your withdrawal request for INR {amount} has been approved."
     )
@@ -33,6 +33,7 @@ async def callback_all(client, query: CallbackQuery):
         upi_id = datas[-1]
     
         print("Reject action", user_id, amount, upi_id)
+        await query.message.delete()
         collection.update_one({'user_id': user_id}, {'$inc': {'balance': amount}})
         await JN.send_message(user_id,f"Your withdrawal request for INR {amount} has been rejected. The amount has been refunded to your balance."
     )
@@ -48,8 +49,10 @@ async def callback_all(client, query: CallbackQuery):
         try:
             user = await client.get_chat_member(UPDATE_CHNL, user_id)
             support = await client.get_chat_member(SUPPORT_GRP, user_id)
+            await query.message.delete()
             # print(user)
             if user.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.OWNER,ChatMemberStatus.ADMINISTRATOR] and support.status in [ChatMemberStatus.MEMBER, ChatMemberStatus.OWNER,ChatMemberStatus.ADMINISTRATOR]:
+                
                 add_refer_balance(user_id=referred_by, refer_in=REFER_BONUS)
                 add_default_balance(user_id=user_id)
                 await client.send_message(user_id, f"Congratulations! You've received {NEW_USER_BONUS}₹ as a new user bonus.")
