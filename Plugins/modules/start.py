@@ -9,7 +9,7 @@ from ..database import collection, add_refer_balance, add_default_balance, is_ne
 
 
 # Force join handler
-@JN.on_message(filters.regex(r"/start"))
+@JN.on_message(filters.command(start))
 async def must_join_channel(bot: Client, msg):
     if not UPDATE_CHNL and not SUPPORT_GRP:
         return
