@@ -44,7 +44,7 @@ async def callback_all(client, query: CallbackQuery):
     if query.data.startswith("joined"):
         
         datas=query.data.split("_")
-    luser_id= int(datas[1].replace("{","").replace("}", ""))
+        user_id= int(datas[1].replace("{","").replace("}", ""))
         referred_by=datas[-1]
 
         print("line 56", user_id, referred_by)
