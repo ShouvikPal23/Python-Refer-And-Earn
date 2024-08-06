@@ -35,15 +35,16 @@ async def callback_all(client, query: CallbackQuery):
     
         print("Reject action", user_id, amount, upi_id)
         await query.message.delete()
-        collection.update_one({'user_id': user_id}, {'$inc': {'balance': amount}})
+        
         await JN.send_message(user_id,f"Your withdrawal request for INR {amount} has been rejected. The amount has been refunded to your balance."
     )
         await query.answer("Withdrawal rejected.")
     
     
     if query.data.startswith("joined"):
+        
         datas=query.data.split("_")
-        user_id=int(datas[1].replace("{","").replace("}", ""))
+    luser_id= int(datas[1].replace("{","").replace("}", ""))
         referred_by=datas[-1]
 
         print("line 56", user_id, referred_by)
