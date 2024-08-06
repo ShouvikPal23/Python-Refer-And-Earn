@@ -52,19 +52,13 @@ async def must_join_channel(bot: Client, msg):
             else:
                 await msg.reply(f"Hey {msg.from_user.first_name}, are you trying to cheat on me? 😏")
                 await bot.send_message(referred_by, "ʏᴏᴜʀ ꜰʀɪᴇɴᴅ ɪꜱ ᴀʟʀᴇᴀᴅʏ ᴀ ᴜꜱᴇʀ ᴏꜰ ᴛʜᴇ ʙᴏᴛ.")
-        except Exception as e:
-            print(e)
-                
+        
         except UserNotParticipant:
-            if UPDATE_CHNL.isalpha() and Update2.isalpha():
-                link = "https://t.me/" + UPDATE_CHNL
-                link2 = "https://t.me/" + Update2
-            else:
-                chat_info = await bot.get_chat(UPDATE_CHNL)
-                link = chat_info.invite_link
-                chat_info = await bot.get_chat(Update2)
-                link2 = chat_info.invite_link
-                user_id={msg.from_user.id}
+            link = "https://t.me/" + UPDATE_CHNL
+            link2 = "https://t.me/" + Update2
+            
+            
+            user_id={msg.from_user.id}
 
             try:
                 if is_new_user(msg.from_user.id):
