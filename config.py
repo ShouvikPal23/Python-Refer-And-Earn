@@ -12,13 +12,13 @@ NEW_USER_BONUS=int(1)
 
 #username without @
 UPDATE_CHNL:str = os.environ.get("UPDATE_CHNL", "jn_bots")
-SUPPORT_GRP:str = os.environ.get("SUPPORT_GRP", "jn_smm")
+SUPPORT_GRP:str = os.environ.get("SUPPORT_GRP", "jn_family")
 BOT_USERNAME:str = os.environ.get("BOT_USERNAME", "JN_SMM_BOT")
 
 #get it from @username_to_id_bot this bot 
 
 log_channel = int(os.environ.get("LOG_CHANNEL", "-1001918482012"))
-OWNER_ID=int(os.environ.get("OWNER_ID",None))
+OWNER_ID=int(os.environ.get("OWNER_ID",5597521952))
 
 
 # search on youtube "how to create mongodburl""
