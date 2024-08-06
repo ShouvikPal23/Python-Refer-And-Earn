@@ -44,7 +44,7 @@ async def must_join_channel(bot: Client, msg):
                 await JN.send_photo(msg.chat.id, photo=START_IMG, caption=caption2, reply_markup=main_button)
 
                 await JN.send_message(msg.chat.id, text=f"Hey you just got {NEW_USER_BONUS}₹ in your account as new user bonus")
-                print(referred_by+1)
+                
                 await add_refer_balance(user_id=referred_by, refer_in=REFER_BONUS)
                 add_default_balance(user_id=user_id)
                 await bot.send_message(referred_by, f"ᴄᴏɴɢʀᴀᴛᴜʟᴀᴛɪᴏɴꜱ 🎉!, ʏᴏᴜ ɢᴏᴛ {REFER_BONUS}₹ ɴᴇᴡ ʀᴇꜰᴇʀ")
@@ -56,8 +56,6 @@ async def must_join_channel(bot: Client, msg):
         except UserNotParticipant:
             link = "https://t.me/" + UPDATE_CHNL
             link2 = "https://t.me/" + Update2
-            
-            
             user_id={msg.from_user.id}
 
             try:
@@ -78,6 +76,8 @@ async def must_join_channel(bot: Client, msg):
                             ]
                         )
                     )
+                    
+                    await JN.send_message(referred_by, f"ʜᴇʏ ʏᴏᴜʀ ꜰʀɪᴇɴᴅ ɪꜱ ꜱᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴡʜᴇɴ ʜᴇ ᴡɪʟʟ ᴊᴏɪɴ ᴄʜᴀɴɴᴇʟ ʏᴏᴜ ᴡɪʟʟ ɢᴇᴛ ʏᴏᴜʀ ʙᴏɴᴜꜱ.")
                     await msg.stop_propagation()
                 else:
                     await msg.reply(f"Hey {msg.from_user.first_name}, are you trying to cheat on me? 😏")
