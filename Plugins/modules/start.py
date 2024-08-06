@@ -83,6 +83,8 @@ async def main_menu_handler(bot, message):
     
     caption = f"Hello {message.from_user.first_name},\n\nI'm a powerful SMM bot. You can buy any type of SMM service here.\n\nMaintained by: <a href='https://t.me/jn_dev/'>JN Dev</a>"
     
-    await Mukesh.send_photo(message.chat.id, photo=start_img2, caption=caption, reply_markup=main_button)
+    await JN.send_photo(message.chat.id, photo=start_img2, caption=caption, reply_markup=main_button)
     await message.delete()
+    
+    
 
