@@ -2,7 +2,7 @@ from config import MONGO_DB_URI,NEW_USER_BONUS,REFER_BONUS
 
 from pymongo import MongoClient
 client = MongoClient(MONGO_DB_URI)
-db = client['user_balances']
+db = client['user_balances_rexy']
 collection = db['balances']
 files_collection = db["files"]
 
